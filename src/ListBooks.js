@@ -12,7 +12,7 @@ class ListBooks extends Component {
         <div className="list-books-content">
           <div>
             {this.props.shelves.map((shelf, i) => {
-              return <Bookshelf key={i} shelf={shelf} books={this.props.books}/>
+              return <Bookshelf key={i} shelf={shelf} books={this.props.books} onMoveBook={this.props.onMoveBook}/>
             })}
           </div>
         </div>

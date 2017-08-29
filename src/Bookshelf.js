@@ -11,7 +11,7 @@ class Bookshelf extends Component {
             {this.props.books.filter(booksOnShelf => booksOnShelf.shelf === this.props.shelf.id).map((book, i) => {
               return(
                 <li key={i}>
-                  <Book book={book}/>
+                  <Book book={book} onMoveBook={this.props.onMoveBook}/>
                 </li>
               )
             })}
