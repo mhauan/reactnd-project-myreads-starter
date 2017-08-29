@@ -8,9 +8,9 @@ import './App.css'
 class BooksApp extends React.Component {
   state = {
     shelves: [
-      { title: 'Want to Read', shortname: 'wantToRead' },
-      { title: 'Currently Reading', shortname: 'currentlyReading' },
-      { title: 'Read', shortname: 'read' }
+      { title: 'Want to Read', id: 'wantToRead' },
+      { title: 'Currently Reading', id: 'currentlyReading' },
+      { title: 'Read', id: 'read' }
     ],
     books: []
   }

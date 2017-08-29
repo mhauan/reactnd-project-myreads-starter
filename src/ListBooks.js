@@ -11,8 +11,8 @@ class ListBooks extends Component {
         </div>
         <div className="list-books-content">
           <div>
-            {this.props.shelves.map(function(shelf) {
-              return <Bookshelf shelf={shelf}/>
+            {this.props.shelves.map((shelf, i) => {
+              return <Bookshelf key={i} shelf={shelf} books={this.props.books}/>
             })}
           </div>
         </div>
