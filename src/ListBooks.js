@@ -11,9 +11,9 @@ class ListBooks extends Component {
         </div>
         <div className="list-books-content">
           <div>
-            <Bookshelf />
-            <Bookshelf />
-            <Bookshelf />
+            {this.props.shelves.map(function(shelf) {
+              return <Bookshelf shelf={shelf}/>
+            })}
           </div>
         </div>
         <div className="open-search">
