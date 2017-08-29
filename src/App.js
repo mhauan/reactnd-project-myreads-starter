@@ -11,7 +11,14 @@ class BooksApp extends React.Component {
       { title: 'Want to Read', shortname: 'wantToRead' },
       { title: 'Currently Reading', shortname: 'currentlyReading' },
       { title: 'Read', shortname: 'read' }
-    ]
+    ],
+    books: []
+  }
+
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => {
+      this.setState({ books })
+    })
   }
 
   render() {
@@ -21,7 +28,7 @@ class BooksApp extends React.Component {
           <SearchBooks />
         )}/>
         <Route exact path='/' render={() => (
-          <ListBooks shelves={this.state.shelves}/>
+          <ListBooks shelves={this.state.shelves} books={this.state.books}/>
         )}/>
       </div>
     )
