@@ -13,7 +13,7 @@ updateQuery = (query) => {
   if (query !== "") {
     this.setState({ query: query })
     BooksAPI.search(query, 2).then((res) => {
-      this.setState({ books: res})
+      (query !== "" && (this.setState({ books: res})))
     })
   } else {
     this.setState({ books: [], query: query })
