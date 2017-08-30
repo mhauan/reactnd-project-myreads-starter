@@ -13,7 +13,7 @@ updateQuery = (query) => {
   if (query !== "") {
     this.setState({ query: query })
     BooksAPI.search(query, 2).then((res) => {
-      (query !== "" && (this.setState({ books: res})))
+      (query !== "" && res.error !== "empty query" && (this.setState({ books: res})))
     })
   } else {
     this.setState({ books: [], query: query })
@@ -45,7 +45,7 @@ updateQuery = (query) => {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {this.state.books.map((book, i) => {
+            {(this.state.query !== "" && (this.state.books.map((book, i) => {
               return(
                 <li key={i}>
                   <Book
@@ -55,7 +55,7 @@ updateQuery = (query) => {
                   />
                 </li>
               )
-            })}
+            })))}
           </ol>
         </div>
       </div>
