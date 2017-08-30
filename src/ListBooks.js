@@ -11,6 +11,8 @@ class ListBooks extends Component {
   }
 
   render() {
+    const { books, onMoveBook, shelves } = this.props
+
     return(
       <div className="list-books">
         <div className="list-books-title">
@@ -18,14 +20,14 @@ class ListBooks extends Component {
         </div>
         <div className="list-books-content">
           <div>
-            {this.props.shelves.map((shelf, i) => {
+            {shelves.map((shelf, i) => {
               return (
                 <Bookshelf
                   key={i}
                   shelf={shelf}
-                  books={this.props.books}
-                  onMoveBook={this.props.onMoveBook}
-                  shelves={this.props.shelves}
+                  books={books}
+                  onMoveBook={onMoveBook}
+                  shelves={shelves}
                 />
               )
             })}

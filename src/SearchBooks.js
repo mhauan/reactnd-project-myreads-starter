@@ -21,6 +21,9 @@ updateQuery = (query) => {
 }
 
   render() {
+    const { onAddBook, shelves } = this.props
+    const { query, books } = this.state
+
     return(
       <div className="search-books">
         <div className="search-books-bar">
@@ -37,7 +40,7 @@ updateQuery = (query) => {
             <input
               type="text"
               placeholder="Search by title or author"
-              value={this.state.query}
+              value={query}
               onChange={(event) => this.updateQuery(event.target.value)}
             />
 
@@ -45,13 +48,13 @@ updateQuery = (query) => {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {(this.state.query !== "" && (this.state.books.map((book, i) => {
+            {(query !== "" && (books.map((book, i) => {
               return(
                 <li key={i}>
                   <Book
                     book={book}
-                    onMoveBook={this.props.onAddBook}
-                    shelves={this.props.shelves}
+                    onMoveBook={onAddBook}
+                    shelves={shelves}
                   />
                 </li>
               )

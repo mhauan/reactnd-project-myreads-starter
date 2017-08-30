@@ -9,18 +9,20 @@ class Bookshelf extends Component {
   }
 
   render() {
+    const { books, onMoveBook, shelves } = this.props
+
     return(
       <div className="bookshelf">
         <h2 className="bookshelf-title">{this.props.shelf.title}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
-            {this.props.books.filter(booksOnShelf => booksOnShelf.shelf === this.props.shelf.id).map((book, i) => {
+            {books.filter(booksOnShelf => booksOnShelf.shelf === this.props.shelf.id).map((book, i) => {
               return(
                 <li key={i}>
                   <Book
                     book={book}
-                    onMoveBook={this.props.onMoveBook}
-                    shelves={this.props.shelves}
+                    onMoveBook={onMoveBook}
+                    shelves={shelves}
                   />
                 </li>
               )
