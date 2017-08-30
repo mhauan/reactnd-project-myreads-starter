@@ -16,7 +16,6 @@ class Book extends Component {
             <select onChange={(event) => this.props.onMoveBook(this.props.book, event.target.value)} value={this.props.book.shelf}>
               <option value="none" disabled>Move to...</option>
               {this.props.shelves.map((shelf, i) => {
-                console.log(shelf)
                 return (
                   <option key={i} value={shelf.id}>{shelf.title}</option>
                 )
