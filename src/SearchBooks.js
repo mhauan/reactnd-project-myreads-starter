@@ -13,7 +13,20 @@ updateQuery = (query) => {
   if (query !== "") {
     this.setState({ query: query })
     BooksAPI.search(query, 2).then((res) => {
-      (query !== "" && res.error !== "empty query" && (this.setState({ books: res})))
+      console.log(res)
+      if (query !== "" && res.error !== "empty query") {
+        res.map((res) => {
+          if (typeof res.shelf === 'undefined') {
+            let currentBook = this.props.currentBooks.filter(book => book.id === res.id)
+            res.shelf = (typeof currentBook[0] !== 'undefined') ? currentBook[0].shelf : "none"
+          }
+          return res
+        })
+
+        this.setState({ books: res})
+      } else {
+        this.setState({ books: [] })
+      }
     })
   } else {
     this.setState({ books: [], query: query })
