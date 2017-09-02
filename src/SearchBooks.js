@@ -13,7 +13,6 @@ updateQuery = (query) => {
   if (query !== "") {
     this.setState({ query: query })
     BooksAPI.search(query, 2).then((res) => {
-      console.log(res)
       if (query !== "" && res.error !== "empty query") {
         res.map((res) => {
           if (typeof res.shelf === 'undefined') {
